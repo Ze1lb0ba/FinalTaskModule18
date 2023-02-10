@@ -1,4 +1,5 @@
 ﻿using YoutubeExplode;
+using YoutubeExplode.Videos;
 using YoutubeExplode.Videos.Streams;
 
 class Resiver
@@ -19,8 +20,10 @@ class Resiver
             Console.WriteLine("Скачивание начато");
             var videos = new YoutubeClient();
             var streamManifest = await videos.Videos.Streams.GetManifestAsync(_data);
+            var video = await videos.Videos.GetAsync(_data);
             var streamInfo = streamManifest.GetMuxedStreams().GetWithHighestVideoQuality();
-            await videos.Videos.Streams.DownloadAsync(streamInfo, $"{_setting}\\video.{streamInfo.Container}");
+            var title = video.Title;
+            await videos.Videos.Streams.DownloadAsync(streamInfo, $"{_setting}\\{title}.{streamInfo.Container}");
             Console.WriteLine("Скачивание окончено");
         }
         catch
