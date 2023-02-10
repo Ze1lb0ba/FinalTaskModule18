@@ -12,7 +12,7 @@
     {
         Console.WriteLine("");
         Console.WriteLine("Выберите действие, введя число, где:");
-        Console.WriteLine("1 - Показать описание к видео, 2 - Скачать видеоролик в память ПК.");
+        Console.WriteLine("1 - Показать описание к видео, 2 - Скачать видеоролик в память ПК, 3 - скачать только аудиодорожку из видео.");
         Console.WriteLine("");
         int i = UserSelectCheck(Console.ReadLine());
         return i;
@@ -27,8 +27,10 @@
                     return a;
                 case 2:
                     return a;
+                case 3:
+                    return a;
                 default:
-                    Console.WriteLine("Вы ввели неверное число");
+                    Console.WriteLine("Вы ввели неверное число.");
                     UserSelectInput();
                     break;
             }

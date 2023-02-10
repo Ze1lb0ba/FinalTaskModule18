@@ -18,4 +18,9 @@
     {
         comand.ShowDescription();
     }
+
+    public void IfDownLoadAudioInput()
+    {
+        comand.DownLoadAudioFile();
+    }
 }
