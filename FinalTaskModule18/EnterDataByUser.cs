@@ -8,7 +8,9 @@
 
         while (resume)
         {
+            Console.WriteLine("");
             Console.WriteLine("Введите URL видео с которым будете работать, либо введите: 0 для перехода к следующему шагу.");
+            Console.WriteLine("Сейчас в очереди {0} файла(-ов)", list.Count);
             Console.WriteLine("");
             string enter = Console.ReadLine();
             if (Int32.TryParse(enter, out int ent) && ent == 0)
@@ -58,5 +60,15 @@
             UserSelectInput();
         }
         return 1;
+    }
+
+    // Удаляет все недопустимые символы
+    public static string RemoveInvalidChars(string input)
+    {
+        foreach (Char invalid_char in Path.GetInvalidFileNameChars())
+        {
+            input = input.Replace(oldValue: invalid_char.ToString(), newValue: "");
+        }
+        return input;
     }
 }
