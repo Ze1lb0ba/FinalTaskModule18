@@ -1,11 +1,27 @@
 ﻿class EnterDataByUser
 {
 
-    public static string URLSet()
+    public static List<string> URLSet()
     {
-        Console.WriteLine("Введите URL видео с которым будете работать");
-        Console.WriteLine("");
-        return Console.ReadLine();
+        List<string> list = new List<string>();
+        bool resume = true;
+
+        while (resume)
+        {
+            Console.WriteLine("Введите URL видео с которым будете работать, либо введите: 0 для перехода к следующему шагу.");
+            Console.WriteLine("");
+            string enter = Console.ReadLine();
+            if (Int32.TryParse(enter, out int ent) && ent == 0)
+            {
+                resume = false;
+            }
+            else
+            {
+                list.Add(enter);
+            }
+        }
+        
+        return list;
     }
 
     public static int UserSelectInput()

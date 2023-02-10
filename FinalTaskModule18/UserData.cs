@@ -1,7 +1,6 @@
 ﻿class UserData
 {
-    public string URLOfVideo { get; set; }
+    public List<string> userURLs = new List<string>();
 
     public int UserSelect { get; set; }
-
 }

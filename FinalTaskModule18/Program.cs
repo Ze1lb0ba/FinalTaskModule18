@@ -9,7 +9,7 @@ internal class Program
         UserData userData = new UserData();
         Setting setting = new Setting();
 
-        userData.URLOfVideo = EnterDataByUser.URLSet();
+        userData.userURLs = EnterDataByUser.URLSet();
         userData.UserSelect = EnterDataByUser.UserSelectInput();
 
         Invoker invok = new Invoker();
